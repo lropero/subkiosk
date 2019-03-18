@@ -3,22 +3,26 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "clean": "rm -f ./yarn.lock && rm -f ./yarn-*.log && yarn cache clean",
+    "cli": "node node_modules/react-native/local-cli/cli.js start",
+    "init": "rm -rf ./node_modules && yarn",
+    "lint": "standard --fix --parser babel-eslint",
+    "nuke": "yarn run clean && yarn run init",
+    "start": "concurrently 'yarn run cli' 'react-native run-ios --simulator=\"iPad Pro (10.5-inch) (12.1)\"'",
+    "test": "standard --parser babel-eslint",
+    "upgrade": "node upgrade.js"
   },
   "dependencies": {
-    "react": "16.8.3",
-    "react-native": "0.59.1"
+    "react": "^16.8.4",
+    "react-native": "^0.59.1"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/runtime": "^7.3.4",
-    "babel-jest": "^24.5.0",
-    "jest": "^24.5.0",
+    "babel-eslint": "^10.0.1",
+    "chalk": "^2.4.2",
+    "concurrently": "^4.1.0",
     "metro-react-native-babel-preset": "^0.53.1",
-    "react-test-renderer": "16.8.3"
-  },
-  "jest": {
-    "preset": "react-native"
+    "standard": "^12.0.1"
   }
 }
