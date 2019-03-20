@@ -1,6 +1,7 @@
 const theme = {
+  black: '#000000',
   green: '#005542',
-  yellow: '#fff200'
+  white: '#ffffff'
 }
 
 export default theme
