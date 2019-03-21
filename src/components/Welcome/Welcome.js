@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
 import { animated, useSpring } from 'react-spring'
 import { Easing, Image, Text, TouchableWithoutFeedback, View } from 'react-native'
@@ -28,50 +28,82 @@ const Wrapper = styled(animated(View))`
 `
 
 const Welcome = (props) => {
-  const [ pressed, setPressed ] = useState(false)
-  const [ scaleFrom, setScaleFrom ] = useState(1)
-  const [ scaleTo, setScaleTo ] = useState(1.1)
-  const { opacity, rotateX, scale } = useSpring({
-    config: { mass: 1, tension: 500, friction: 50, duration: (!pressed && 1000) || undefined, easing: Easing.in((t) => Easing.bounce(t)) },
-    from: {
-      opacity: 1,
-      rotateX: '180deg',
-      scale: pressed ? 1 : 0.7
-    },
+  const fast = { friction: 50, mass: 1, tension: 500 }
+
+  const [animationParams, setAnimationParams] = useState({
+    opacity: 0,
+    rotateX: '180deg',
+    scale: 0.7
+  })
+
+  const [orderScale, setOrderScale] = useState({
+    from: 1,
+    to: 1.1
+  })
+
+  const [pressed, setPressed] = useState(false)
+
+  const { opacity } = useSpring({
+    config: fast,
+    from: { opacity: animationParams.opacity },
     native: true,
     onRest: pressed && (() => props.navigation.navigate('Start')),
-    to: {
-      opacity: pressed ? 0 : 1,
-      rotateX: '0deg',
-      scale: pressed ? 0.9 : 1
-    }
+    to: { opacity: animationParams.opacity }
   })
-  const { opacity: opacity2, scale: scale2 } = useSpring({
-    config: { mass: 1, tension: 500, friction: 50, duration: (!pressed && 1200) || undefined, easing: Easing.inOut((t) => Easing.cubic(t)) },
+
+  const { rotateX, scale } = useSpring({
+    config: {
+      ...fast,
+      duration: (!pressed && 800) || undefined,
+      easing: Easing.in((t) => Easing.bounce(t))
+    },
     from: {
-      opacity: 1,
-      scale: scaleFrom
+      rotateX: animationParams.rotateX,
+      scale: animationParams.scale
     },
     native: true,
-    onRest: !pressed && (() => {
-      setScaleFrom(scaleTo)
-      setScaleTo(scaleFrom)
-    }),
     to: {
-      opacity: pressed ? 0 : 1,
-      scale: pressed ? 0.9 : scaleTo
+      rotateX: animationParams.rotateX,
+      scale: animationParams.scale
     }
   })
+
+  const orderSpring = useSpring({
+    config: {
+      duration: 1200,
+      easing: Easing.inOut((t) => Easing.cubic(t))
+    },
+    from: { scale: orderScale.from },
+    native: true,
+    onRest: !pressed && (() => setOrderScale({
+      from: orderScale.to,
+      to: orderScale.from
+    })),
+    to: { scale: orderScale.to }
+  })
+
+  useEffect(() => {
+    setAnimationParams({
+      opacity: 1,
+      rotateX: '0deg',
+      scale: 1
+    })
+  }, [])
+
+  const handlePress = () => {
+    setAnimationParams({
+      opacity: 0,
+      rotateX: '70deg',
+      scale: 0.7
+    })
+    setPressed(true)
+  }
+
   return (
     <Black>
-      <TouchableWithoutFeedback onPress={() => setPressed(true)}>
-        <Wrapper style={useSpring({
-          config: { mass: 1, tension: 500, friction: 50 },
-          from: { opacity: 1 },
-          native: true,
-          to: { opacity: pressed ? 0 : 1 }
-        })}>
-          <Logo style={Object.assign({}, { opacity }, { transform: [{ rotateX }, { scale }] })}>
+      <TouchableWithoutFeedback onPress={handlePress}>
+        <Wrapper style={{ opacity }}>
+          <Logo style={Object.assign({}, { transform: [{ rotateX }, { scale }] })}>
             <Image
               source={logo}
               style={{
@@ -80,7 +112,7 @@ const Welcome = (props) => {
               }}
             />
           </Logo>
-          <Order style={Object.assign({}, { opacity: opacity2 }, { transform: [{ scale: scale2 }] })}>ORDER HERE</Order>
+          <Order style={Object.assign({}, { transform: [{ scale: orderSpring.scale }] })}>ORDER HERE</Order>
         </Wrapper>
       </TouchableWithoutFeedback>
     </Black>
