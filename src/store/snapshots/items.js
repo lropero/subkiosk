@@ -247,13 +247,13 @@ const items = {
     },
     {
       id: '44',
-      name: 'X2 Sport Energy: Fruit Punch',
+      name: 'X2 Sport Energy',
       description: 'A better for you drink that gives you the energy you want without the guilt. X2 Sport has no artificial ingredients and includes caffeine from green tea, coconut water for hydration, and only 9 grams of sugar!',
       price: Math.floor(Math.random() * 7) + 0.99
     },
     {
       id: '45',
-      name: 'X2 All-Natural Energy: Strawberry Kiwi/Raspberry',
+      name: 'X2 All-Natural Energy',
       description: 'A better for you drink that gives you the energy you want without the guilt. X2 is all natural, with no artificial ingredients, less sugar, caffeine from green tea, pure honey and non-carbonated!',
       price: Math.floor(Math.random() * 7) + 0.99
     },

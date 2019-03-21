@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
 import { animated, config, useSpring } from 'react-spring'
-import { Image, ImageBackground, TouchableOpacity, View } from 'react-native'
-import { NavigationActions, StackActions } from 'react-navigation'
+import { Image, ImageBackground, Text, TouchableOpacity, View } from 'react-native'
 
 import background from 'SubKiosk/src/assets/images/background.png'
 import buttonEatIn from 'SubKiosk/src/assets/images/button-eatIn.png'
@@ -25,12 +24,11 @@ const Buttons = styled(animated(View))`
 
 const Logo = animated(View)
 
-const Question = styled.Text`
+const Question = styled(animated(Text))`
   color: ${({ theme }) => theme.white};
   font-family: Montserrat;
   font-size: 38px;
   font-weight: 400;
-  letter-spacing: 2px;
   padding: 30px 0 50px;
 `
 
@@ -44,6 +42,7 @@ const Start = (props) => {
   const fast = { friction: 50, mass: 1, tension: 500 }
 
   const [animationParams, setAnimationParams] = useState({
+    letterSpacing: 0,
     opacity: 0,
     scale: 0.7,
     translateY: 50
@@ -55,23 +54,20 @@ const Start = (props) => {
     config: fast,
     from: { opacity: animationParams.opacity },
     native: true,
-    onRest: pressed && (() => {
-      props.navigation.dispatch(StackActions.reset({
-        actions: [NavigationActions.navigate({ routeName: 'Welcome' })],
-        index: 0
-      }))
-    }),
+    onRest: pressed && (() => props.navigation.navigate('Homepage')),
     to: { opacity: animationParams.opacity }
   })
 
-  const { scale, translateY } = useSpring({
+  const { letterSpacing, scale, translateY } = useSpring({
     config: config.wobbly,
     from: {
+      letterSpacing: animationParams.letterSpacing,
       scale: animationParams.scale,
       translateY: animationParams.translateY
     },
     native: true,
     to: {
+      letterSpacing: animationParams.letterSpacing,
       scale: animationParams.scale,
       translateY: animationParams.translateY
     }
@@ -79,6 +75,7 @@ const Start = (props) => {
 
   useEffect(() => {
     setAnimationParams({
+      letterSpacing: 2,
       opacity: 1,
       scale: 1,
       translateY: 0
@@ -87,8 +84,9 @@ const Start = (props) => {
 
   const handlePress = () => {
     setAnimationParams({
+      letterSpacing: 5,
       opacity: 0,
-      scale: 0,
+      scale: 1.2,
       translateY: 120
     })
     setPressed(true)
@@ -101,7 +99,7 @@ const Start = (props) => {
           <Logo style={{ transform: [{ scale }] }}>
             <Image source={logo} style={{ height: 80, width: 396 }} />
           </Logo>
-          <Question>Where will you be eating today?</Question>
+          <Question style={{ letterSpacing }}>Where will you be eating today?</Question>
           <Buttons style={{ transform: [{ translateY }] }}>
             <TouchableOpacity activeOpacity={0.7} onPress={handlePress}>
               <Image

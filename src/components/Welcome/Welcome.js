@@ -13,9 +13,9 @@ const Black = styled.View`
 const Logo = animated(View)
 
 const Order = styled(animated(Text))`
-  color: ${({ theme }) => theme.white};
-  font-family: Montserrat;
-  font-size: 38px;
+  color: ${({ theme }) => theme.yellow};
+  font-family: Dancing Script;
+  font-size: 58px;
   font-weight: 400;
   padding-top: 50px;
 `
@@ -70,8 +70,8 @@ const Welcome = (props) => {
 
   const orderSpring = useSpring({
     config: {
-      duration: 1200,
-      easing: Easing.inOut((t) => Easing.cubic(t))
+      duration: 800,
+      easing: Easing.inOut((t) => Easing.quad(t))
     },
     from: { scale: orderScale.from },
     native: true,
@@ -112,7 +112,7 @@ const Welcome = (props) => {
               }}
             />
           </Logo>
-          <Order style={Object.assign({}, { transform: [{ scale: orderSpring.scale }] })}>ORDER HERE</Order>
+          <Order style={Object.assign({}, { transform: [{ scale: orderSpring.scale }] })}>Order Here</Order>
         </Wrapper>
       </TouchableWithoutFeedback>
     </Black>

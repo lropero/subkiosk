@@ -13,12 +13,17 @@
     "upgrade": "node upgrade.js"
   },
   "dependencies": {
+    "accounting-js": "^1.1.1",
+    "lodash": "^4.17.11",
     "mobx": "^5.9.0",
     "mobx-react": "^5.4.3",
     "mobx-state-tree": "^3.12.0",
+    "object-hash": "^1.3.1",
     "react": "^16.8.4",
     "react-native": "^0.59.1",
     "react-native-gesture-handler": "^1.1.0",
+    "react-native-numeric-input": "^1.6.5",
+    "react-native-vector-icons": "^6.4.2",
     "react-navigation": "^3.5.1",
     "react-spring": "^8.0.18",
     "styled-components": "^4.1.3"
