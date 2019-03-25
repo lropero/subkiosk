@@ -35,12 +35,10 @@ const Welcome = (props) => {
     rotateX: '180deg',
     scale: 0.7
   })
-
   const [orderScale, setOrderScale] = useState({
     from: 1,
     to: 1.1
   })
-
   const [pressed, setPressed] = useState(false)
 
   const { opacity } = useSpring({
@@ -50,7 +48,6 @@ const Welcome = (props) => {
     onRest: pressed && (() => props.navigation.navigate('Start')),
     to: { opacity: animationParams.opacity }
   })
-
   const { rotateX, scale } = useSpring({
     config: {
       ...fast,
@@ -67,7 +64,6 @@ const Welcome = (props) => {
       scale: animationParams.scale
     }
   })
-
   const orderSpring = useSpring({
     config: {
       duration: 800,

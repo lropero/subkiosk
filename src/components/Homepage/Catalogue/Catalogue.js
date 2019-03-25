@@ -1,7 +1,6 @@
-import hash from 'object-hash'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import NumericInput from 'react-native-numeric-input'
-import React, { PureComponent } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled, { withTheme } from 'styled-components/native'
 import { FlatList, TouchableOpacity } from 'react-native'
 
@@ -55,7 +54,7 @@ const Picture = styled.Image`
   width: 320px;
 `
 
-const Qty = styled.Text`
+const Quantity = styled.Text`
   color: ${({ theme }) => theme.blackish};
   font-family: Montserrat;
   font-size: 24px;
@@ -80,104 +79,92 @@ const Wrapper = styled.View`
   width: 78%;
 `
 
-class Catalogue extends PureComponent {
-  constructor () {
-    super()
-    this.state = {
-      showDetails: false
+const Catalogue = (props) => {
+  const [quantity, setQuantity] = useState(1)
+  const [showItem, setShowItem] = useState(false)
+
+  const flatList = useRef()
+
+  useEffect(() => {
+    if (flatList.current) {
+      flatList.current.scrollToIndex({ index: 0 })
+    } else {
+      resetItem()
     }
-    this.openDetails = this.openDetails.bind(this)
-    this.renderItem = this.renderItem.bind(this)
-  }
+  }, [props.items])
 
-  componentDidUpdate (prevProps) {
-    const { items } = this.props
-    if (hash(items) !== hash(prevProps.items)) {
-      this.setState({ showDetails: false })
-      delete this.qty
-      setTimeout(() => {
-        this.flatList.scrollToIndex({ index: 0 })
-      }, 50)
-    }
-  }
-
-  openDetails (itemId) {
-    const { getItem } = this.props
-    delete this.qty
-    this.item = getItem(itemId)
-    this.setState({ showDetails: itemId })
-  }
-
-  renderItem ({ item }) {
+  const renderItem = ({ item }) => {
     return (
       <Item
         imageId={item.id}
         isEmpty={!!item.empty}
         name={item.name}
-        openDetails={() => this.openDetails(item.id)}
+        openDetails={() => setShowItem(item)}
       />
     )
   }
 
-  render () {
-    const { addItem, items, theme } = this.props
-    return (
-      <Wrapper>
-        {this.state.showDetails ? (
-          <ItemDetails>
-            <Top>
-              <TouchableOpacity activeOpacity={0.7} onPress={() => this.setState({ showDetails: false })}>
-                <Back><Icon color={theme.green} name='angle-left' size={62} /></Back>
-              </TouchableOpacity>
-              <ItemName>{this.item.name}</ItemName>
-            </Top>
-            <Main>
-              <Left>
-                <Picture resizeMode='contain' source={getImage(this.state.showDetails)} />
-                <Qty>Quantity</Qty>
-                <NumericInput
-                  borderColor={theme.green}
-                  editable={false}
-                  iconStyle={{ color: theme.white }}
-                  initValue={1}
-                  leftButtonBackgroundColor={theme.green}
-                  minValue={1}
-                  onChange={(qty) => { this.qty = qty }}
-                  rightButtonBackgroundColor={theme.green}
-                  rounded
-                  totalHeight={70}
-                />
-              </Left>
-              <Right>
-                <ItemDescription>{this.item.description}</ItemDescription>
-                <Button
-                  backgroundColor={theme.green}
-                  borderColor={theme.green}
-                  borderRadius='10px'
-                  color={theme.white}
-                  fontSize='24px'
-                  height='70px'
-                  onPress={() => addItem(this.item.id, this.qty || 1)}
-                  text='ADD TO ORDER'
-                  width='300px'
-                />
-              </Right>
-            </Main>
-          </ItemDetails>
-        ) : (
-          <FlatList
-            bounces={false}
-            columnWrapperStyle={{ flex: 1, justifyContent: 'space-around' }}
-            data={formatData(Object.values(items), 3)}
-            keyExtractor={(item) => item.id}
-            numColumns={3}
-            ref={ref => { this.flatList = ref }}
-            renderItem={this.renderItem}
-          />
-        )}
-      </Wrapper>
-    )
+  const resetItem = () => {
+    setQuantity(1)
+    setShowItem(false)
   }
+
+  return (
+    <Wrapper>
+      {showItem ? (
+        <ItemDetails>
+          <Top>
+            <TouchableOpacity activeOpacity={0.7} onPress={resetItem}>
+              <Back><Icon color={props.theme.green} name='angle-left' size={62} /></Back>
+            </TouchableOpacity>
+            <ItemName>{showItem.name}</ItemName>
+          </Top>
+          <Main>
+            <Left>
+              <Picture resizeMode='contain' source={getImage(showItem.id)} />
+              <Quantity>Quantity</Quantity>
+              <NumericInput
+                borderColor={props.theme.green}
+                editable={false}
+                iconStyle={{ color: props.theme.white }}
+                initValue={quantity}
+                leftButtonBackgroundColor={props.theme.green}
+                minValue={1}
+                onChange={(qty) => setQuantity(qty)}
+                rightButtonBackgroundColor={props.theme.green}
+                rounded
+                totalHeight={70}
+              />
+            </Left>
+            <Right>
+              <ItemDescription>{showItem.description}</ItemDescription>
+              <Button
+                backgroundColor={props.theme.green}
+                borderColor={props.theme.green}
+                borderRadius='10px'
+                color={props.theme.white}
+                fontSize='24px'
+                height='70px'
+                onPress={() => props.addItem(showItem.id, quantity)}
+                text='ADD TO ORDER'
+                width='300px'
+              />
+            </Right>
+          </Main>
+        </ItemDetails>
+      ) : (
+        <FlatList
+          bounces={false}
+          columnWrapperStyle={{ flex: 1, justifyContent: 'space-around' }}
+          data={formatData(Object.values(props.items), 3)}
+          keyExtractor={(item) => item.id}
+          numColumns={3}
+          ref={flatList}
+          renderItem={renderItem}
+        />
+      )}
+    </Wrapper>
+  )
 }
 
 export default withTheme(Catalogue)

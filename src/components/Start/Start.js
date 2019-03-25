@@ -47,7 +47,6 @@ const Start = (props) => {
     scale: 0.7,
     translateY: 50
   })
-
   const [pressed, setPressed] = useState(false)
 
   const { opacity } = useSpring({
@@ -57,7 +56,6 @@ const Start = (props) => {
     onRest: pressed && (() => props.navigation.navigate('Homepage')),
     to: { opacity: animationParams.opacity }
   })
-
   const { letterSpacing, scale, translateY } = useSpring({
     config: config.wobbly,
     from: {
