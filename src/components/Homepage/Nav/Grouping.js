@@ -5,9 +5,9 @@ import { TouchableOpacity } from 'react-native'
 import { getImage } from 'SubKiosk/src/helpers'
 
 const Icon = styled.Image`
-  border-radius: 70px;
-  height: 140px;
-  width: 140px;
+  border-radius: 75px;
+  height: 150px;
+  width: 150px;
 `
 
 const Name = styled.Text`

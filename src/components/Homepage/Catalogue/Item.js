@@ -8,7 +8,7 @@ import { getImage } from 'SubKiosk/src/helpers'
 const Invisible = styled.View`
   background-color: transparent;
   margin: 10px;
-  width: 262px;
+  width: 332px;
 `
 
 const Name = styled.Text`
@@ -23,26 +23,23 @@ const Name = styled.Text`
 const Wrapper = styled(animated(View))`
   align-items: center;
   background-color: ${({ theme }) => theme.yellow};
-  border-radius: 30px;
+  border-radius: 18px;
   margin: 10px 0;
   overflow: hidden;
-  width: 262px;
+  width: 332px;
 `
 
 const WrapperName = styled.View`
   background-color: ${({ theme }) => theme.green};
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
   justify-content: center;
   min-height: 62px;
   padding: 8px;
-  width: 262px;
+  width: 332px;
 `
 
-const Item = (props) => {
-  const { imageId, isEmpty, name, openDetails } = props
-  return !isEmpty ? (
-    <TouchableOpacity activeOpacity={0.7} onPress={openDetails}>
+const Item = ({ item, setShowItem }) => {
+  return !item.empty ? (
+    <TouchableOpacity activeOpacity={0.7} onPress={() => setShowItem(item)}>
       <Spring
         config={config.wobbly}
         from={{ opacity: 0, scale: 0.8 }}
@@ -51,9 +48,9 @@ const Item = (props) => {
       >
         {({ opacity, scale }) => (
           <Wrapper style={{ opacity, transform: [{ scale }] }}>
-            <Image resizeMode='cover' source={getImage(imageId)} style={{ height: 200, width: 262 }} />
+            <Image resizeMode='cover' source={getImage(item.id)} style={{ height: 270, width: 332 }} />
             <WrapperName>
-              <Name>{name}</Name>
+              <Name>{item.name}</Name>
             </WrapperName>
           </Wrapper>
         )}

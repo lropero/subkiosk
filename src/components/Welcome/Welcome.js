@@ -103,8 +103,8 @@ const Welcome = (props) => {
             <Image
               source={logo}
               style={{
-                height: 110,
-                width: 544
+                height: 130,
+                width: 643
               }}
             />
           </Logo>

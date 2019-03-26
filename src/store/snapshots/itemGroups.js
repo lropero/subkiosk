@@ -1,5 +1,5 @@
-const groups = {
-  groups: [
+const itemGroups = {
+  itemGroups: [
     {
       id: '1',
       name: 'Sandwiches',
@@ -44,4 +44,4 @@ const groups = {
   selected: '1'
 }
 
-export default groups
+export default itemGroups

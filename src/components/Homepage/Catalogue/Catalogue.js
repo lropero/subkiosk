@@ -1,9 +1,10 @@
 import Icon from 'react-native-vector-icons/FontAwesome'
-import NumericInput from 'react-native-numeric-input'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { Fragment, useEffect, useRef, useState } from 'react'
 import styled, { withTheme } from 'styled-components/native'
-import { FlatList, TouchableOpacity } from 'react-native'
+import { animated, useSpring } from 'react-spring'
+import { Easing, FlatList, ScrollView, TouchableOpacity, View } from 'react-native'
 
+import Customization from './Customization'
 import Item from './Item'
 import { Button } from 'SubKiosk/src/shared'
 import { formatData, getImage } from 'SubKiosk/src/helpers'
@@ -11,6 +12,31 @@ import { formatData, getImage } from 'SubKiosk/src/helpers'
 const Back = styled.View`
   justify-content: center;
   padding-left: 20px;
+`
+
+const Bottom = styled.View`
+  align-items: flex-end;
+  display: flex;
+  padding: 20px;
+  width: 100%;
+`
+
+const CustomizationGroup = styled.Text`
+  color: ${({ theme }) => theme.black};
+  font-family: Dancing Script;
+  font-size: 42px;
+  font-weight: 400;
+  padding: 10px 20px;
+`
+
+const Customizations = styled(animated(View))`
+  background-color: ${({ theme }) => theme.diegote};
+  border-bottom-color: ${({ theme }) => theme.blackish};
+  border-bottom-width: 1px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 `
 
 const ItemDescription = styled.Text`
@@ -27,7 +53,7 @@ const ItemDetails = styled.View`
 `
 
 const ItemName = styled.Text`
-  color: ${({ theme }) => theme.black};
+  color: ${({ theme }) => theme.white};
   font-family: Montserrat;
   font-size: 38px;
   font-weight: 400;
@@ -54,20 +80,12 @@ const Picture = styled.Image`
   width: 320px;
 `
 
-const Quantity = styled.Text`
-  color: ${({ theme }) => theme.blackish};
-  font-family: Montserrat;
-  font-size: 24px;
-  font-weight: 400;
-  margin-top: 20px;
-  padding-bottom: 10px;
-`
-
 const Right = styled.View`
   width: 52%;
 `
 
 const Top = styled.View`
+  background-color: ${({ theme }) => theme.green};
   display: flex;
   flex-direction: row;
 `
@@ -76,68 +94,114 @@ const Wrapper = styled.View`
   background: ${({ theme }) => theme.white};
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
-  width: 78%;
+  width: 80%;
+`
+
+const WrapperCustomization = styled.View`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 12px;
+  padding: 0 0 10px 10px;
+  width: 100%;
 `
 
 const Catalogue = (props) => {
-  const [quantity, setQuantity] = useState(1)
+  const [animationParams, setAnimationParams] = useState({ height: '0%' })
   const [showItem, setShowItem] = useState(false)
 
   const flatList = useRef()
 
+  const { height } = useSpring({
+    config: {
+      duration: 800,
+      easing: Easing.in((t) => Easing.bounce(t))
+    },
+    from: { height: animationParams.height },
+    native: true,
+    to: { height: animationParams.height }
+  })
+
   useEffect(() => {
     if (flatList.current) {
-      flatList.current.scrollToIndex({ index: 0 })
+      flatList.current.scrollToIndex({
+        animated: false,
+        index: 0
+      })
     } else {
       resetItem()
     }
   }, [props.items])
 
-  const renderItem = ({ item }) => {
-    return (
-      <Item
-        imageId={item.id}
-        isEmpty={!!item.empty}
-        name={item.name}
-        openDetails={() => setShowItem(item)}
-      />
-    )
-  }
+  const renderItem = ({ item }) => (
+    <Item
+      item={item}
+      setShowItem={setShowItem}
+    />
+  )
 
   const resetItem = () => {
-    setQuantity(1)
+    setAnimationParams({ height: '0%' })
     setShowItem(false)
+  }
+
+  const showCustomizations = () => {
+    setAnimationParams({ height: '100%' })
   }
 
   return (
     <Wrapper>
       {showItem ? (
         <ItemDetails>
+          <Customizations style={{ height }}>
+            <Top>
+              <TouchableOpacity activeOpacity={0.7} onPress={resetItem}>
+                <Back><Icon color={props.theme.white} name='angle-left' size={62} /></Back>
+              </TouchableOpacity>
+              <ItemName>{showItem.name}</ItemName>
+            </Top>
+            <ScrollView>
+              {showItem.customizationsAvailable && showItem.customizationGroups.map((customizationGroup, index) => (
+                <Fragment key={index}>
+                  <CustomizationGroup>{customizationGroup.name}</CustomizationGroup>
+                  <WrapperCustomization>
+                    {showItem.getCustomizations(customizationGroup.id).map((customization, index2) => (
+                      <Customization
+                        customization={customization}
+                        key={index2}
+                      />
+                    ))}
+                  </WrapperCustomization>
+                </Fragment>
+              ))}
+              <Bottom>
+                <Button
+                  backgroundColor={props.theme.green}
+                  borderColor={props.theme.green}
+                  borderRadius='10px'
+                  color={props.theme.white}
+                  fontSize='24px'
+                  height='70px'
+                  onPress={() => props.addItem(showItem.id)}
+                  text='ADD TO ORDER'
+                  width='300px'
+                />
+              </Bottom>
+            </ScrollView>
+          </Customizations>
           <Top>
             <TouchableOpacity activeOpacity={0.7} onPress={resetItem}>
-              <Back><Icon color={props.theme.green} name='angle-left' size={62} /></Back>
+              <Back><Icon color={props.theme.white} name='angle-left' size={62} /></Back>
             </TouchableOpacity>
             <ItemName>{showItem.name}</ItemName>
           </Top>
           <Main>
             <Left>
               <Picture resizeMode='contain' source={getImage(showItem.id)} />
-              <Quantity>Quantity</Quantity>
-              <NumericInput
-                borderColor={props.theme.green}
-                editable={false}
-                iconStyle={{ color: props.theme.white }}
-                initValue={quantity}
-                leftButtonBackgroundColor={props.theme.green}
-                minValue={1}
-                onChange={(qty) => setQuantity(qty)}
-                rightButtonBackgroundColor={props.theme.green}
-                rounded
-                totalHeight={70}
-              />
             </Left>
             <Right>
-              <ItemDescription>{showItem.description}</ItemDescription>
+              <ItemDescription>{showItem.description || 'Lorem ipsum dolor sit amet consectetur adipiscing elit quis, cum nisi torquent malesuada tempus nibh augue.'}</ItemDescription>
               <Button
                 backgroundColor={props.theme.green}
                 borderColor={props.theme.green}
@@ -145,8 +209,8 @@ const Catalogue = (props) => {
                 color={props.theme.white}
                 fontSize='24px'
                 height='70px'
-                onPress={() => props.addItem(showItem.id, quantity)}
-                text='ADD TO ORDER'
+                onPress={showItem.customizationsAvailable ? showCustomizations : () => props.addItem(showItem.id)}
+                text={showItem.customizationsAvailable ? 'CUSTOMIZE' : 'ADD TO ORDER'}
                 width='300px'
               />
             </Right>

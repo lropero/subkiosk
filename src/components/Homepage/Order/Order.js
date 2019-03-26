@@ -13,7 +13,7 @@ const Bottom = styled.View`
   background-color: ${({ theme }) => theme.yellow};
   border-top-color: ${({ theme }) => theme.darkYellow};
   border-top-width: 2px;
-  flex: 0.3;
+  flex: 0.24;
   justify-content: flex-end;
   width: 100%;
 `
@@ -37,7 +37,7 @@ const SubTotal = styled.Text`
 const Top = styled.View`
   align-items: center;
   background-color: ${({ theme }) => theme.yellow};
-  flex: 0.7;
+  flex: 0.76;
   width: 100%;
 `
 
@@ -47,7 +47,7 @@ const Wrapper = styled.View`
   border-top-right-radius: 10px;
   display: flex;
   overflow: hidden;
-  width: 22%;
+  width: 20%;
 `
 
 const Order = ({ getItem, items, navigation, resetNav, resetOrder, theme, total }) => {

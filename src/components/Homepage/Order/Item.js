@@ -5,9 +5,9 @@ import { formatMoney } from 'accounting-js'
 import { getImage } from 'SubKiosk/src/helpers'
 
 const Icon = styled.Image`
-  border-radius: 40px;
-  height: 80px;
-  width: 80px;
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
 `
 
 const Info = styled.Text`
@@ -19,7 +19,7 @@ const Info = styled.Text`
 
 const Left = styled.View`
   align-items: center;
-  width: 60px;
+  width: 100px;
 `
 
 const Right = styled.View`

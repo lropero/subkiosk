@@ -23,20 +23,20 @@ const Wrapper = styled.View`
 const Homepage = ({ store }) => (
   <Wrapper>
     <Nav
-      groupings={store.groups.groupings}
-      select={store.groups.select}
-      selected={store.groups.selected.toJSON().id}
+      groupings={store.itemGroups.groupings}
+      select={store.itemGroups.select}
+      selected={store.itemGroups.selected.toJSON().id}
     />
     <Main>
       <Catalogue
         addItem={store.order.addItem}
         getItem={store.items.getItem}
-        items={store.groups.items}
+        items={store.itemGroups.items}
       />
       <Order
         getItem={store.items.getItem}
-        items={store.order.orderItems}
-        resetNav={store.groups.resetNav}
+        items={store.order.items}
+        resetNav={store.itemGroups.resetNav}
         resetOrder={store.order.resetOrder}
         total={store.order.orderTotal}
       />

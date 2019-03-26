@@ -5,7 +5,7 @@ import { ScrollView } from 'react-native'
 import Grouping from './Grouping'
 
 const Wrapper = styled.View`
-  height: 200px;
+  height: 220px;
   padding-bottom: 10px;
 `
 

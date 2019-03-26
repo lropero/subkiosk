@@ -1,4 +1,4 @@
-import { destroy, types } from 'mobx-state-tree'
+import { types } from 'mobx-state-tree'
 
 import Item from './Item'
 
@@ -15,11 +15,8 @@ const Order = types
     }
   }))
   .actions((self) => ({
-    addItem (itemId, quantity) {
-      self.items.push(...(Array(quantity).fill(itemId)))
-    },
-    removeItem (item) {
-      destroy(item)
+    addItem (itemId) {
+      self.items.push(itemId)
     },
     resetOrder () {
       self.items = []

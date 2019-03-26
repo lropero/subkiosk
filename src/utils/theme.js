@@ -3,6 +3,7 @@ const theme = {
   blackish: '#333333',
   darkGreen: '#004434',
   darkYellow: '#c19300',
+  diegote: '#eeeeee',
   green: '#005542',
   white: '#ffffff',
   yellow: '#f2b800'

@@ -1,15 +1,19 @@
 import { types } from 'mobx-state-tree'
 
-import Groups from './Groups'
+import CustomizationGroups from './CustomizationGroups'
+import Customizations from './Customizations'
+import ItemGroups from './ItemGroups'
 import Items from './Items'
 import Order from './Order'
-import { groups, items } from './snapshots'
+import { customizationGroups, customizations, itemGroups, items } from './snapshots'
 
 const store = types
   .model('Store', {
-    groups: types.maybe(Groups),
+    customizationGroups: types.maybe(CustomizationGroups),
+    customizations: types.maybe(Customizations),
+    itemGroups: types.maybe(ItemGroups),
     items: types.maybe(Items),
     order: types.optional(Order, {})
   })
 
-export default store.create({ groups, items })
+export default store.create({ customizationGroups, customizations, itemGroups, items })

@@ -4,181 +4,211 @@ const items = {
       id: '1',
       name: 'Black Forest Ham',
       description: 'Black Forest Ham sandwich is classic. Just add your own flavor. Oh, and it’s one of eight six-inch Fresh Fit™ subs with two servings of crisp veggies on freshly baked bread for under 400 calories.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '2',
       name: 'Chicken & Bacon Ranch Melt',
       description: 'The Chicken & Bacon Ranch Melt sandwich is packed with tender all-white meat chicken with seasoning and marinade, savory bacon, melty Montery cheddar cheese…and toasted. Aw yeah.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '3',
       name: 'Cold Cut Combo',
       description: 'The Cold Cut Combo sandwich with ham, salami, and bologna (all turkey based) is a long-time Subway® favorite. Yeah. It’s that good.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '4',
       name: 'Italian B.M.T.®',
       description: 'The Italian B.M.T.® sandwich is filled with Genoa salami, spicy pepperoni, and Black Forest Ham. Big. Meaty. Tasty. Get it.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '5',
       name: 'Meatball Marinara',
       description: 'The Meatball Marinara sandwich is drenched in irresistible marinara sauce, sprinkled with Parmesan cheese, topped with whatever you want (no judgement) and perfectly toasted just for you.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '6',
       name: 'Oven Roasted Chicken',
       description: 'The Oven Roasted Chicken sandwich is warm, with savory chicken on freshly baked bread with your choice of veggies. Oh, and it’s one of eight 6-inch Fresh Fit™ subs with two servings of crisp veggies on freshly baked bread for under 400 calories.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '7',
       name: 'Roast Beef',
       description: 'Our Roast Beef sandwich has lean, sliced beef piled up high, then topped with crisp, crunchy veggies. Oh, and it’s one of eight six-inch Fresh Fit™ subs with two servings of crisp veggies on freshly baked bread for under 400 calories.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '8',
       name: 'Rotisserie-Style Chicken',
       description: 'Our Rotisserie-Style Chicken sandwich is made with tender, hand-pulled chicken. All that, and it’s one of eight 6-inch Fresh Fit™ subs with two servings of crisp veggies on freshly baked bread for under 400 calories.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '9',
       name: 'Spicy Italian',
       description: 'Our Spicy Italian sandwich is a combo of pepperoni and Genoa salami. Pile on cheese, crunchy veggies, and finish it with your favorite sauce. Or don’t. Your call.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '10',
       name: 'Steak & Cheese',
       description: 'Our Steak & Cheese sandwich is where warm, delicious steak gets topped with melty cheesiness. Get crazy with veggies and sauces to make it what you want.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '11',
       name: 'Subway Club®',
       description: 'Enjoy a low-fat flavor feast of premium sliced turkey breast, lean roast beef and tasty Black Forest ham. Oh, and it’s one of eight 6-inch Fresh Fit™ subs with two servings of crisp veggies on freshly baked bread for under 400 calories. Not too shabby.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '12',
       name: 'Sweet Onion Chicken Teriyaki',
       description: 'Our Sweet Onion Chicken Teriyaki sandwich is stuffed with teriyaki-glazed chicken strips topped with our own fat-free sweet onion sauce. All that, and it’s one of eight 6-inch Fresh Fit™ subs with two servings of crisp veggies on freshly baked bread for under 400 calories.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '13',
       name: 'Classic Tuna',
       description: 'Our Tuna sandwich is simply delish. Flaked tuna blended with mayo, topped with your choice of veggies. Make it what you want ™.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '14',
       name: 'Turkey Breast',
       description: 'You’ll never go wrong with a savory Turkey Breast sandwich. Our premium sliced turkey breast is simply delish. Make it what you want with crunchy veggies and more. And, it’s one of eight 6-inch Fresh Fit™ subs with two servings of crisp veggies on freshly baked bread for under 400 calories.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '15',
       name: 'Veggie Delite®',
       description: 'The Veggie Delite®sandwich is crispy, crunchy, vegetarian perfection. Pile on the veggies any which way you want! It’s one of eight 6-inch Fresh Fit™ subs with two servings of crisp veggies on freshly baked bread for under 400 calories.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '16',
       name: 'Black Forest Ham',
       description: 'The Black Forest Ham chopped salad is a flavorful way to enjoy a Subway® favorite. Sliced ham, lettuce, and a pile of your favorite veggies - all tossed with your choice of dressing.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '17',
       name: 'Chicken & Bacon Ranch',
       description: 'The Chicken & Bacon Ranch Melt chopped salad has tender all-white meat chicken with seasoning and marinade, topped with Monterey cheddar cheese, and bacon. All on top of crunchy greens and your choice of dressing. Aw yeah.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '18',
       name: 'Cold Cut Combo',
       description: 'The Cold Cut Combo chopped salad has ham, salami, and bologna (all turkey-based) tossed together with crisp lettuce and your favorite veggies. Mix it up with whatever dressing you love best.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '19',
       name: 'Italian B.M.T.®',
       description: 'The Italian B.M.T.® chopped salad is the salad version of our popular sub. Crisp greens topped with Genoa salami, spicy pepperoni, and Black Forest ham. Meaty deliciousness, all in a salad.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '20',
       name: 'Meatball Marinara',
       description: 'The Meatball Marinara chopped salad is the ultimate cravings crusher. Hot Italian-style meatballs in marinara sauce and a sprinkle of Parmesan cheese, all sitting on top of your favorite greens and veggies. Yes!',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '21',
       name: 'Oven Roasted Chicken',
       description: 'The Oven Roasted Chicken chopped salad has warm, savory chicken tossed together with crisp greens and any veggies you want. Your favorite sandwich, just in salad form.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '22',
       name: 'Roast Beef',
       description: 'Our Roast Beef chopped salad has lean, sliced beef tossed with crisp greens, and any veggies that you love. Mix in your favorite dressing while you’re at it. Day made.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '23',
       name: 'Rotisserie-Style Chicken',
       description: 'The Rotisserie-Style Chicken chopped salad stars warm, tender, hand-pulled chicken tossed with crisp greens … and any other veggies and dressings you crave.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '24',
       name: 'Spicy Italian',
       description: 'Our Spicy Italian chopped salad is a combo of pepperoni and Genoa salami. Basically, the ideal Italian sub, but transformed into a salad. Genius, right?',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '25',
       name: 'Steak & Cheese',
       description: 'The Steak & Cheese chopped salad starts with crisp greens, but gets to the next level with warm, delicious steak topped with cheese. Dreams do come true.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '26',
       name: 'Subway Club®',
       description: 'Our premium sliced turkey breast, lean roast beef and tasty Black Forest ham…all tossed with crunchy lettuce and your choice of tasty veggies. It’s the Subway Club® chopped salad, and it’s amazing.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '27',
       name: 'Sweet Onion Chicken Teriyaki',
       description: 'Enjoy our Sweet Onion Chicken Teriyaki flavors on a chopped salad. Tender teriyaki-glazed chicken strips topped with fat-free sweet onion sauce over crisp greens and a generous pile of veggies. Flavor like whoa.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '28',
       name: 'Tuna',
       description: 'Our Tuna chopped salad is simply delish. Flaked tuna mixed with mayo, riding high on top of a bed of crisp lettuce and veggies. Classic for a reason.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '29',
       name: 'Turkey Breast',
       description: 'The Turkey Breast chopped salad is a go-to salad choice. Our premium sliced turkey breast, tossed together with lettuce, crunchy veggies and whatever dressing does it for you. Simply the best.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '30',
       name: 'Veggie Delite®',
       description: 'Enjoy the simpler things? The Veggie Delite® chopped salad is simply delish. A pile of your favorite veggies, finished with the dressing of your choice. Crisp. Delicious. All for you.',
-      price: Math.floor(Math.random() * 7) + 0.99
+      price: Math.floor(Math.random() * 7) + 0.99,
+      customizationsAvailable: ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
     },
     {
       id: '31',
@@ -242,7 +272,7 @@ const items = {
     },
     {
       id: '43',
-      name: 'vitaminwater XXX',
+      name: 'Vitaminwater XXX',
       price: Math.floor(Math.random() * 7) + 0.99
     },
     {
