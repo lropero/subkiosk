@@ -1,4 +1,4 @@
-import React, { useState } from 'React'
+import React from 'React'
 import styled from 'styled-components/native'
 import { animated, useSpring } from 'react-spring'
 import { Easing, Image, TouchableOpacity, View } from 'react-native'
@@ -32,9 +32,7 @@ const WrapperName = styled.View`
   width: 140px;
 `
 
-const Customization = ({ customization }) => {
-  const [clicked, setClicked] = useState(false)
-
+const Customization = ({ clicked, customization, setClicked }) => {
   const { scale } = useSpring({
     config: {
       duration: 800,
@@ -46,7 +44,7 @@ const Customization = ({ customization }) => {
   })
 
   return (
-    <TouchableOpacity activeOpacity={0.7} onPress={() => setClicked(!clicked)}>
+    <TouchableOpacity activeOpacity={0.7} onPress={setClicked}>
       <Wrapper clicked={clicked} style={{ transform: [{ scale }] }}>
         <Image resizeMode='cover' source={getImage(customization.id, 'c')} style={{ height: 100, width: 100 }} />
         <WrapperName>

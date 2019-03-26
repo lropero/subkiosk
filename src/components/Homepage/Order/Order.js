@@ -50,12 +50,12 @@ const Wrapper = styled.View`
   width: 20%;
 `
 
-const Order = ({ getItem, items, navigation, resetNav, resetOrder, theme, total }) => {
+const Order = ({ customizations, getItem, items, navigation, resetNav, resetOrder, theme, total }) => {
   const groupedItems = _.groupBy(items, 'id')
   return (
     <Wrapper>
       <Top>
-        {Object.keys(groupedItems).map((itemId, index) => <Item item={getItem(itemId)} key={index} quantity={groupedItems[itemId].length} />)}
+        {Object.keys(groupedItems).map((itemId, index) => <Item customizations={customizations[index]} item={getItem(itemId)} key={index} quantity={groupedItems[itemId].length} />)}
       </Top>
       <Bottom>
         <SubTotal>{`SUBTOTAL: ${formatMoney(total)}`}</SubTotal>

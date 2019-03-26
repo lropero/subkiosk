@@ -34,6 +34,7 @@ const Homepage = ({ store }) => (
         items={store.itemGroups.items}
       />
       <Order
+        customizations={store.order.customizations}
         getItem={store.items.getItem}
         items={store.order.items}
         resetNav={store.itemGroups.resetNav}

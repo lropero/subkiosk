@@ -4,6 +4,13 @@ import { formatMoney } from 'accounting-js'
 
 import { getImage } from 'SubKiosk/src/helpers'
 
+const Customizations = styled.Text`
+  color: ${({ theme }) => theme.blackish};
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 400;
+`
+
 const Icon = styled.Image`
   border-radius: 50px;
   height: 100px;
@@ -35,7 +42,9 @@ const Wrapper = styled.View`
   width: 100%;
 `
 
-const Item = ({ item, quantity }) => {
+const Item = ({ customizations, item, quantity }) => {
+  const c = JSON.parse(customizations)
+  const count = Object.keys(c).reduce((acc, curr) => acc + c[curr].length, 0)
   return (
     <Wrapper>
       <Left>
@@ -43,6 +52,7 @@ const Item = ({ item, quantity }) => {
       </Left>
       <Right>
         <Info>{`${quantity} x ${formatMoney(item.price)}`}</Info>
+        {count > 0 && (<Customizations>{`${count} customizations`}</Customizations>)}
       </Right>
     </Wrapper>
   )

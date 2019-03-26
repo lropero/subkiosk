@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import React, { Fragment, useEffect, useRef, useState } from 'react'
 import styled, { withTheme } from 'styled-components/native'
@@ -108,7 +109,18 @@ const WrapperCustomization = styled.View`
 `
 
 const Catalogue = (props) => {
+  const initialCustomizations = {
+    c1: [],
+    c2: [],
+    c3: [],
+    c4: [],
+    c5: [],
+    c6: [],
+    c7: []
+  }
+
   const [animationParams, setAnimationParams] = useState({ height: '0%' })
+  const [customizations, setCustomizations] = useState(initialCustomizations)
   const [showItem, setShowItem] = useState(false)
 
   const flatList = useRef()
@@ -134,6 +146,16 @@ const Catalogue = (props) => {
     }
   }, [props.items])
 
+  const handleClick = (customizationGroupId, customizationId) => {
+    const newCustomizations = _.clone(customizations)
+    if (newCustomizations[`c${customizationGroupId}`].includes(customizationId)) {
+      _.pull(newCustomizations[`c${customizationGroupId}`], customizationId)
+    } else {
+      newCustomizations[`c${customizationGroupId}`].push(customizationId)
+    }
+    setCustomizations(newCustomizations)
+  }
+
   const renderItem = ({ item }) => (
     <Item
       item={item}
@@ -143,6 +165,7 @@ const Catalogue = (props) => {
 
   const resetItem = () => {
     setAnimationParams({ height: '0%' })
+    setCustomizations(initialCustomizations)
     setShowItem(false)
   }
 
@@ -168,8 +191,10 @@ const Catalogue = (props) => {
                   <WrapperCustomization>
                     {showItem.getCustomizations(customizationGroup.id).map((customization, index2) => (
                       <Customization
+                        clicked={customizations[`c${customizationGroup.id}`].includes(customization.id)}
                         customization={customization}
                         key={index2}
+                        setClicked={() => handleClick(customizationGroup.id, customization.id)}
                       />
                     ))}
                   </WrapperCustomization>
@@ -183,7 +208,10 @@ const Catalogue = (props) => {
                   color={props.theme.white}
                   fontSize='24px'
                   height='70px'
-                  onPress={() => props.addItem(showItem.id)}
+                  onPress={() => {
+                    props.addItem(showItem.id, customizations)
+                    resetItem()
+                  }}
                   text='ADD TO ORDER'
                   width='300px'
                 />
