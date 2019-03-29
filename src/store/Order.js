@@ -19,6 +19,7 @@ const Order = types
     },
     resetOrder () {
       self.items = []
+      self.customizations = []
     }
   }))
 
