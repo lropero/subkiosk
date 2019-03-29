@@ -7,7 +7,7 @@
 
 ### Installation
 ```sh
-$ yarn
+$ yarn run init
 ```
 
 ### Starting simulator

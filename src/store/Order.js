@@ -15,7 +15,7 @@ const Order = types
   .actions((self) => ({
     addItem (itemId, customizations = {}) {
       self.items.push(itemId)
-      self.customizations.push(JSON.stringify(customizations))
+      self.customizations.push(JSON.stringify({ id: itemId, ...customizations }))
     },
     resetOrder () {
       self.items = []

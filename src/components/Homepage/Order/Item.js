@@ -43,8 +43,8 @@ const Wrapper = styled.View`
 `
 
 const Item = ({ customizations, item, quantity }) => {
-  const c = JSON.parse(customizations)
-  const count = Object.keys(c).reduce((acc, curr) => acc + c[curr].length, 0)
+  const { id, ...rest } = JSON.parse(customizations)
+  const count = Object.keys(rest).reduce((acc, curr) => acc + rest[curr].length, 0)
   return (
     <Wrapper>
       <Left>
@@ -52,7 +52,7 @@ const Item = ({ customizations, item, quantity }) => {
       </Left>
       <Right>
         <Info>{`${quantity} x ${formatMoney(item.price)}`}</Info>
-        {count > 0 && (<Customizations>{`${count} customizations`}</Customizations>)}
+        {count > 0 && quantity === 1 && (<Customizations>{`${count} customizations`}</Customizations>)}
       </Right>
     </Wrapper>
   )

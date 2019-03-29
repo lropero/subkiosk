@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import React, { Fragment, useEffect, useRef, useState } from 'react'
 import styled, { withTheme } from 'styled-components/native'
@@ -109,18 +108,8 @@ const WrapperCustomization = styled.View`
 `
 
 const Catalogue = (props) => {
-  const initialCustomizations = {
-    c1: [],
-    c2: [],
-    c3: [],
-    c4: [],
-    c5: [],
-    c6: [],
-    c7: []
-  }
-
   const [animationParams, setAnimationParams] = useState({ height: '0%' })
-  const [customizations, setCustomizations] = useState(initialCustomizations)
+  const [customizations, setCustomizations] = useState({})
   const [showItem, setShowItem] = useState(false)
 
   const flatList = useRef()
@@ -146,14 +135,17 @@ const Catalogue = (props) => {
     }
   }, [props.items])
 
-  const handleClick = (customizationGroupId, customizationId) => {
-    const newCustomizations = _.clone(customizations)
-    if (newCustomizations[`c${customizationGroupId}`].includes(customizationId)) {
-      _.pull(newCustomizations[`c${customizationGroupId}`], customizationId)
-    } else {
-      newCustomizations[`c${customizationGroupId}`].push(customizationId)
+  const handleClick = (customizationGroupId, customizationId, maximum) => {
+    const set = new Set(customizations[customizationGroupId])
+    if (set.has(customizationId)) {
+      set.delete(customizationId)
+    } else if (set.size < maximum) {
+      set.add(customizationId)
+    } else if (maximum === 1) {
+      set.clear()
+      set.add(customizationId)
     }
-    setCustomizations(newCustomizations)
+    setCustomizations({ ...customizations, [customizationGroupId]: Array.from(set) })
   }
 
   const renderItem = ({ item }) => (
@@ -165,7 +157,7 @@ const Catalogue = (props) => {
 
   const resetItem = () => {
     setAnimationParams({ height: '0%' })
-    setCustomizations(initialCustomizations)
+    setCustomizations({})
     setShowItem(false)
   }
 
@@ -185,16 +177,16 @@ const Catalogue = (props) => {
               <ItemName>{showItem.name}</ItemName>
             </Top>
             <ScrollView>
-              {showItem.customizationsAvailable && showItem.customizationGroups.map((customizationGroup, index) => (
-                <Fragment key={index}>
+              {showItem.customizationsAvailable && showItem.customizationGroups.map((customizationGroup) => (
+                <Fragment key={customizationGroup.id}>
                   <CustomizationGroup>{customizationGroup.name}</CustomizationGroup>
                   <WrapperCustomization>
-                    {showItem.getCustomizations(customizationGroup.id).map((customization, index2) => (
+                    {showItem.getCustomizations(customizationGroup.id).map((customization) => (
                       <Customization
-                        clicked={customizations[`c${customizationGroup.id}`].includes(customization.id)}
+                        clicked={(customizations[customizationGroup.id] || []).includes(customization.id)}
                         customization={customization}
-                        key={index2}
-                        setClicked={() => handleClick(customizationGroup.id, customization.id)}
+                        key={customization.id}
+                        setClicked={() => handleClick(customizationGroup.id, customization.id, customizationGroup.maximum)}
                       />
                     ))}
                   </WrapperCustomization>

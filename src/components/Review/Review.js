@@ -71,7 +71,7 @@ class Review extends PureComponent {
           >
             {({ translateY, ...props }) => (
               <Order style={{ ...props, transform: [{ translateY }] }}>
-                {Object.keys(groupedItems).map((itemId, index) => <Item item={getItem(itemId)} key={index} quantity={groupedItems[itemId].length} />)}
+                {Object.keys(groupedItems).map((itemId) => <Item item={getItem(itemId)} key={itemId} quantity={groupedItems[itemId].length} />)}
               </Order>
             )}
           </Spring>
