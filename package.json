@@ -20,11 +20,11 @@
     "mobx-react": "^5.4.3",
     "mobx-state-tree": "^3.12.2",
     "react": "^16.8.6",
-    "react-native": "^0.59.2",
+    "react-native": "^0.59.3",
     "react-native-gesture-handler": "^1.1.0",
     "react-native-vector-icons": "^6.4.2",
-    "react-navigation": "^3.6.0",
-    "react-spring": "^8.0.18",
+    "react-navigation": "^3.6.1",
+    "react-spring": "^8.0.19",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
