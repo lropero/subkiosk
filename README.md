@@ -3,7 +3,7 @@
 
 ### Requires
 - Node v10.15.3
-- Yarn v1.15.2
+- Yarn v1.16.0
 
 ### Installation
 ```sh

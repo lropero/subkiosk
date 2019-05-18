@@ -12,20 +12,20 @@
     "nuke": "yarn run clean && yarn run init",
     "start": "concurrently 'yarn run cli' 'react-native run-ios --simulator=\"iPad Pro (12.9-inch) (2nd generation) (12.2)\"'",
     "test": "standard --parser babel-eslint",
-    "upgrade": "node upgrade.js"
+    "upgrade": "npx upgradeps"
   },
   "dependencies": {
     "accounting-js": "^1.1.1",
     "lodash": "^4.17.11",
     "mobx": "^5.9.4",
-    "mobx-react": "^5.4.3",
+    "mobx-react": "^5.4.4",
     "mobx-state-tree": "^3.14.0",
     "react": "^16.8.6",
-    "react-native": "^0.59.5",
-    "react-native-gesture-handler": "^1.1.0",
+    "react-native": "^0.59.8",
+    "react-native-gesture-handler": "^1.2.1",
     "react-native-vector-icons": "^6.4.2",
-    "react-navigation": "^3.9.1",
-    "react-spring": "^8.0.19",
+    "react-navigation": "^3.10.2",
+    "react-spring": "^8.0.20",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
@@ -34,7 +34,7 @@
     "babel-eslint": "^10.0.1",
     "chalk": "^2.4.2",
     "concurrently": "^4.1.0",
-    "metro-react-native-babel-preset": "^0.53.1",
+    "metro-react-native-babel-preset": "^0.54.1",
     "standard": "^12.0.1"
   },
   "rnpm": {
