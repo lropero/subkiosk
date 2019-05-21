@@ -1,5 +1,5 @@
 # Subway Kiosk
-*You had to have the big salad*
+*Self-Order DEMO Kiosk using React Native and MobX*
 
 ### Requires
 - Node v10.15.3
@@ -14,37 +14,6 @@ $ yarn run init
 `Starts builder + simulator, first time it'll take a while`
 ```sh
 $ yarn run start
-```
-
-### Starting builder
-`Starts builder, when launching simulator from Xcode`
-```sh
-$ yarn run cli
-```
-
-### Pulling new code
-```sh
-$ git pull
-$ yarn run init
-```
-
-### Linting
-`Before pushing code, uses Standard.js`
-```sh
-$ yarn run lint
-```
-
-### Adding dependencies
-`Make sure you commit package.json + yarn.lock files afterwards`
-```sh
-$ yarn add [--dev] <dependency>
-$ yarn run nuke
-```
-
-### Upgrading dependencies
-`I'd suggest doing this regularly during development and refactor any breaking changes (if upgrades, do 'yarn run nuke' and commit package.json + yarn.lock files)`
-```sh
-$ yarn run upgrade
 ```
 
 ### Running on device
