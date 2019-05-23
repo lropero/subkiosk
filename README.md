@@ -1,4 +1,4 @@
-# Subkiosk
+# SubKiosk
 *Self-Order DEMO Kiosk using React Native and MobX*
 
 ### Requires
