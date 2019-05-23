@@ -1,5 +1,5 @@
 {
-  "name": "subkiosk",
+  "name": "SubKiosk",
   "version": "0.0.1",
   "description": "Self-Order DEMO Kiosk using React Native and MobX.",
   "main": "index.js",
@@ -39,15 +39,15 @@
     "init": "rm -rf ./node_modules && yarn",
     "lint": "standard --fix --parser babel-eslint",
     "nuke": "yarn run clean && yarn run init",
-    "start": "concurrently 'yarn run cli' 'react-native run-ios --simulator=\"iPad Pro (12.9-inch) (2nd generation) (12.2)\"'",
+    "start": "concurrently 'yarn run cli' 'react-native run-ios --simulator=\"iPad Pro (12.9-inch) (3rd generation) (12.2)\"'",
     "test": "standard --parser babel-eslint",
     "upgrade": "npx upgradeps"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lropero/subkiosk.git"
+    "url": "git+https://github.com/lropero/SubKiosk.git"
   },
   "author": "Luciano Ropero <lropero@gmail.com>",
   "license": "UNLICENSED",
-  "homepage": "https://github.com/lropero/subkiosk#readme"
+  "homepage": "https://github.com/lropero/SubKiosk#readme"
 }
