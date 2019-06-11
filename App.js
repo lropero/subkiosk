@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Provider } from 'mobx-react/native'
+import { Provider } from 'mobx-react'
 import { StatusBar } from 'react-native'
 import { ThemeProvider } from 'styled-components'
 

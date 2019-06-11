@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { inject, observer } from 'mobx-react/native'
+import { inject, observer } from 'mobx-react'
 
 import Catalogue from './Catalogue/Catalogue'
 import Nav from './Nav/Nav'
