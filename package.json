@@ -5,25 +5,26 @@
   "main": "index.js",
   "dependencies": {
     "accounting-js": "^1.1.1",
-    "lodash": "^4.17.11",
-    "mobx": "^5.10.1",
-    "mobx-react": "^6.0.3",
-    "mobx-state-tree": "^3.14.0",
+    "lodash": "^4.17.15",
+    "mobx": "^5.13.0",
+    "mobx-react": "^6.1.1",
+    "mobx-state-tree": "^3.14.1",
     "react": "^16.8.6",
     "react-native": "^0.59.9",
     "react-native-gesture-handler": "^1.3.0",
-    "react-native-vector-icons": "^6.5.0",
-    "react-navigation": "^3.11.0",
-    "react-spring": "^8.0.23",
-    "styled-components": "^4.3.1"
+    "react-native-reanimated": "^1.2.0",
+    "react-native-vector-icons": "^6.6.0",
+    "react-navigation": "^3.11.1",
+    "react-spring": "^8.0.27",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/runtime": "^7.4.5",
-    "babel-eslint": "^10.0.1",
-    "concurrently": "^4.1.0",
-    "metro-react-native-babel-preset": "^0.54.1",
-    "standard": "^12.0.1"
+    "@babel/core": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "babel-eslint": "^10.0.2",
+    "concurrently": "^4.1.1",
+    "metro-react-native-babel-preset": "^0.55.0",
+    "standard": "^13.1.0"
   },
   "rnpm": {
     "assets": [
@@ -38,7 +39,7 @@
     "init": "rm -rf ./node_modules && yarn",
     "lint": "standard --fix --parser babel-eslint",
     "nuke": "yarn run clean && yarn run init",
-    "start": "concurrently 'yarn run cli' 'react-native run-ios --simulator=\"iPad Pro (12.9-inch) (3rd generation) (12.2)\"'",
+    "start": "concurrently 'yarn run cli' 'react-native run-ios --simulator=\"iPad Pro (12.9-inch) (3rd generation) (12.4)\"'",
     "test": "standard --parser babel-eslint",
     "upgrade": "npx upgradeps"
   },

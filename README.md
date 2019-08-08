@@ -2,8 +2,8 @@
 *Self-Order DEMO Kiosk using React Native and MobX*
 
 ### Requires
-- Node v10.15.3
-- Yarn v1.16.0
+- Node v10.16.2
+- Yarn v1.17.3
 
 ### Installation
 ```sh
@@ -15,6 +15,8 @@ $ yarn run init
 ```sh
 $ yarn run start
 ```
+
+>If simulator fails to start with "Could not find simulator" error then `yarn run devices` and replace simulator in packages.json's `start` script with an existing one in your system.
 
 ### Running on device
 - Open `SubKiosk/ios/SubKiosk.xcodeproj` in Xcode
