@@ -38,7 +38,8 @@ const Button = (props) => {
       <Text
         color={color}
         fontSize={fontSize}
-      >{text}</Text>
+      >{text}
+      </Text>
     </StyledButton>
   )
 }

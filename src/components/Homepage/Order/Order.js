@@ -78,7 +78,8 @@ const Order = ({ customizations, getItem, items, navigation, resetNav, resetOrde
           }))
           resetNav()
           resetOrder()
-        }}>
+        }}
+        >
           <Cancel>CANCEL</Cancel>
         </TouchableWithoutFeedback>
       </Bottom>

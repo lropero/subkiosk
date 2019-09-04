@@ -108,7 +108,6 @@ const Start = (props) => {
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={0.7} onPress={handlePress}>
               <Image
-                onPress={this.takeOut}
                 resizeMode='contain'
                 source={buttonTakeOut}
                 style={{ height: 400, marginLeft: 50, width: 300 }}
