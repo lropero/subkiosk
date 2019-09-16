@@ -3,7 +3,7 @@ import styled from 'styled-components/native'
 import { animated, useSpring } from 'react-spring'
 import { Easing, Image, TouchableOpacity, View } from 'react-native'
 
-import { getImage } from 'SubKiosk/src/helpers'
+import { getImage } from 'subkiosk/src/helpers'
 
 const Name = styled.Text`
   color: ${({ theme }) => theme.blackish};

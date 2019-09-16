@@ -3,16 +3,16 @@
 
 ### Requires
 - CocoaPods v1.7.5
-- Node v10.16.2
+- Node v10.16.3
 - Yarn v1.17.3
 
 ### Installation
 ```sh
-$ yarn run init
+$ yarn
 ```
 
 ### Starting simulator
-`Starts builder + simulator, first time it'll take a while`
+`Starts bundler + simulator, first time it'll take a while`
 ```sh
 $ yarn run start
 ```

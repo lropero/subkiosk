@@ -2,7 +2,7 @@ import React from 'React'
 import styled from 'styled-components/native'
 import { formatMoney } from 'accounting-js'
 
-import { getImage } from 'SubKiosk/src/helpers'
+import { getImage } from 'subkiosk/src/helpers'
 
 const Customizations = styled.Text`
   color: ${({ theme }) => theme.blackish};

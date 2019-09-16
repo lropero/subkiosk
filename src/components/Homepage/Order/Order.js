@@ -6,7 +6,7 @@ import { NavigationActions, StackActions, withNavigation } from 'react-navigatio
 import { TouchableWithoutFeedback } from 'react-native'
 
 import Item from './Item'
-import { Button } from 'SubKiosk/src/shared'
+import { Button } from 'subkiosk/src/shared'
 
 const Bottom = styled.View`
   align-items: center;

@@ -3,9 +3,9 @@ import { Provider } from 'mobx-react'
 import { StatusBar } from 'react-native'
 import { ThemeProvider } from 'styled-components'
 
-import Navigator from 'SubKiosk/src/Navigator'
-import store from 'SubKiosk/src/store'
-import theme from 'SubKiosk/src/utils/theme'
+import Navigator from 'subkiosk/src/Navigator'
+import store from 'subkiosk/src/store'
+import theme from 'subkiosk/src/utils/theme'
 
 const App = () => (
   <Provider store={store}>

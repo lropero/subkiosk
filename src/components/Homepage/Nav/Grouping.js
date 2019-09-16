@@ -2,7 +2,7 @@ import React from 'React'
 import styled from 'styled-components/native'
 import { TouchableOpacity } from 'react-native'
 
-import { getImage } from 'SubKiosk/src/helpers'
+import { getImage } from 'subkiosk/src/helpers'
 
 const Icon = styled.Image`
   border-radius: 75px;

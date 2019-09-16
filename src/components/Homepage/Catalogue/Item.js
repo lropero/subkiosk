@@ -3,7 +3,7 @@ import styled from 'styled-components/native'
 import { animated, config, Spring } from 'react-spring/renderprops-native'
 import { Image, TouchableOpacity, View } from 'react-native'
 
-import { getImage } from 'SubKiosk/src/helpers'
+import { getImage } from 'subkiosk/src/helpers'
 
 const Invisible = styled.View`
   background-color: transparent;

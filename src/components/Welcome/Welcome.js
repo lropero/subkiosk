@@ -3,7 +3,7 @@ import styled from 'styled-components/native'
 import { animated, useSpring } from 'react-spring'
 import { Easing, Image, Text, TouchableWithoutFeedback, View } from 'react-native'
 
-import logo from 'SubKiosk/src/assets/images/logo-subway.png'
+import logo from 'subkiosk/src/assets/images/logo-subway.png'
 
 const Black = styled.View`
   background-color: ${({ theme }) => theme.black};

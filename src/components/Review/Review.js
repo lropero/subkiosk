@@ -4,9 +4,9 @@ import { animated, config, Spring } from 'react-spring/renderprops-native'
 import { Image, ImageBackground, Text, View } from 'react-native'
 import { NavigationActions, StackActions, withNavigation } from 'react-navigation'
 
-import background from 'SubKiosk/src/assets/images/background.png'
 import Item from './Item'
-import logo from 'SubKiosk/src/assets/images/logo-subway.png'
+import background from 'subkiosk/src/assets/images/background.png'
+import logo from 'subkiosk/src/assets/images/logo-subway.png'
 
 const Order = styled(animated(View))`
   background-color: ${({ theme }) => theme.white};

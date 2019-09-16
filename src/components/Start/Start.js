@@ -3,10 +3,10 @@ import styled from 'styled-components/native'
 import { animated, config, useSpring } from 'react-spring'
 import { Image, ImageBackground, Text, TouchableOpacity, View } from 'react-native'
 
-import background from 'SubKiosk/src/assets/images/background.png'
-import buttonEatIn from 'SubKiosk/src/assets/images/button-eatIn.png'
-import buttonTakeOut from 'SubKiosk/src/assets/images/button-takeOut.png'
-import logo from 'SubKiosk/src/assets/images/logo-subway-white.png'
+import background from 'subkiosk/src/assets/images/background.png'
+import buttonEatIn from 'subkiosk/src/assets/images/button-eatIn.png'
+import buttonTakeOut from 'subkiosk/src/assets/images/button-takeOut.png'
+import logo from 'subkiosk/src/assets/images/logo-subway-white.png'
 
 const Background = styled(animated(ImageBackground))`
   background-color: ${({ theme }) => theme.black};

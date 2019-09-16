@@ -1,5 +1,5 @@
 {
-  "name": "SubKiosk",
+  "name": "subkiosk",
   "version": "0.0.1",
   "description": "Self-Order DEMO Kiosk using React Native and MobX.",
   "main": "index.js",
@@ -14,37 +14,36 @@
     "react-native-gesture-handler": "^1.4.1",
     "react-native-reanimated": "^1.2.0",
     "react-native-vector-icons": "^6.6.0",
-    "react-navigation": "^4.0.0",
-    "react-navigation-stack": "^1.5.1",
+    "react-navigation": "^4.0.5",
+    "react-navigation-stack": "^1.7.3",
     "react-spring": "^8.0.27",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/runtime": "^7.5.5",
+    "@babel/core": "^7.6.0",
+    "@babel/runtime": "^7.6.0",
     "babel-eslint": "^10.0.3",
     "concurrently": "^4.1.2",
     "metro-react-native-babel-preset": "^0.56.0",
-    "standard": "^14.1.0"
+    "standard": "^14.3.0"
   },
   "scripts": {
     "build": "rm -rf ./build && mkdir ./build && react-native bundle --assets-dest ./build --bundle-output ./build/main.jsbundle --dev false --entry-file ./index.js --platform ios",
     "clean": "rm -f ./yarn.lock && rm -f ./yarn-*.log && yarn cache clean",
-    "cli": "node node_modules/react-native/local-cli/cli.js start",
     "devices": "instruments -s devices",
     "init": "rm -rf ./node_modules && yarn",
     "lint": "standard --fix --parser babel-eslint",
     "nuke": "yarn run clean && yarn run init",
     "pods": "cd ios && pod install && cd ..",
-    "start": "yarn run pods && concurrently 'yarn run cli' 'react-native run-ios --simulator=\"iPad Pro (12.9-inch) (3rd generation) (12.4)\"'",
+    "start": "yarn run pods && concurrently 'react-native start' 'react-native run-ios --simulator=\"iPad Pro (12.9-inch) (3rd generation) (12.4)\"'",
     "test": "standard --parser babel-eslint",
     "upgrade": "npx upgradeps"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lropero/SubKiosk.git"
+    "url": "git+https://github.com/lropero/subkiosk.git"
   },
   "author": "Luciano Ropero <lropero@gmail.com>",
   "license": "UNLICENSED",
-  "homepage": "https://github.com/lropero/SubKiosk#readme"
+  "homepage": "https://github.com/lropero/subkiosk#readme"
 }

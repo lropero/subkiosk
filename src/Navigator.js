@@ -1,7 +1,7 @@
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 
-import { Homepage, Review, Start, Welcome } from 'SubKiosk/src/components'
+import { Homepage, Review, Start, Welcome } from 'subkiosk/src/components'
 
 const Navigator = createStackNavigator({
   Homepage: { screen: Homepage },

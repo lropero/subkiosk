@@ -6,8 +6,8 @@ import { Easing, FlatList, ScrollView, TouchableOpacity, View } from 'react-nati
 
 import Customization from './Customization'
 import Item from './Item'
-import { Button } from 'SubKiosk/src/shared'
-import { formatData, getImage } from 'SubKiosk/src/helpers'
+import { Button } from 'subkiosk/src/shared'
+import { formatData, getImage } from 'subkiosk/src/helpers'
 
 const Back = styled.View`
   justify-content: center;
