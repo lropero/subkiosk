@@ -1,4 +1,4 @@
-import React from 'React'
+import React from 'react'
 import styled from 'styled-components/native'
 import { animated, useSpring } from 'react-spring'
 import { Easing, Image, TouchableOpacity, View } from 'react-native'
