@@ -21,18 +21,19 @@ const Name = styled.Text`
 
 const Wrapper = styled.View`
   align-items: center;
-  background-color: ${({ isSelected, theme }) => isSelected ? theme.yellow : theme.green};
+  background-color: ${({ isSelected, theme }) =>
+    isSelected ? theme.yellow : theme.green};
   border-left-color: ${({ theme }) => theme.darkGreen};
-  border-left-width: ${({ isFirst }) => isFirst ? 0 : '2px'};
+  border-left-width: ${({ isFirst }) => (isFirst ? 0 : '2px')};
   border-right-color: ${({ theme }) => theme.darkGreen};
-  border-right-width: ${({ isLast }) => isLast ? 0 : '2px'};
+  border-right-width: ${({ isLast }) => (isLast ? 0 : '2px')};
   flex-direction: row;
   flex: 1;
   padding: 0 30px;
   width: 400px;
 `
 
-const Grouping = (props) => {
+const Grouping = props => {
   const { imageId, isFirst, isLast, isSelected, name, selectGroup } = props
   return (
     <TouchableOpacity activeOpacity={0.7} onPress={selectGroup}>

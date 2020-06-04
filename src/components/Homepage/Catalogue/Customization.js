@@ -17,7 +17,7 @@ const Name = styled.Text`
 const Wrapper = styled(animated(View))`
   align-items: center;
   background-color: ${({ theme }) => theme.white};
-  border-color: ${({ clicked }) => clicked ? '#999' : 'transparent'};
+  border-color: ${({ clicked }) => (clicked ? '#999' : 'transparent')};
   border-radius: 10px;
   border-width: 2px;
   margin: 10px 10px 0 0;
@@ -36,7 +36,7 @@ const Customization = ({ clicked, customization, setClicked }) => {
   const { scale } = useSpring({
     config: {
       duration: 800,
-      easing: Easing.in((t) => Easing.bounce(t))
+      easing: Easing.in(t => Easing.bounce(t))
     },
     from: { scale: clicked ? 0.9 : 1 },
     native: true,
@@ -46,7 +46,11 @@ const Customization = ({ clicked, customization, setClicked }) => {
   return (
     <TouchableOpacity activeOpacity={0.7} onPress={setClicked}>
       <Wrapper clicked={clicked} style={{ transform: [{ scale }] }}>
-        <Image resizeMode='cover' source={getImage(customization.id, 'c')} style={{ height: 100, width: 100 }} />
+        <Image
+          resizeMode='cover'
+          source={getImage(customization.id, 'c')}
+          style={{ height: 100, width: 100 }}
+        />
         <WrapperName>
           <Name>{customization.name}</Name>
         </WrapperName>

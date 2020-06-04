@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
 import { animated, useSpring } from 'react-spring'
-import { Easing, Image, Text, TouchableWithoutFeedback, View } from 'react-native'
+import {
+  Easing,
+  Image,
+  Text,
+  TouchableWithoutFeedback,
+  View
+} from 'react-native'
 
 import logo from 'subkiosk/src/assets/images/logo-subway.png'
 
@@ -27,7 +33,7 @@ const Wrapper = styled(animated(View))`
   justify-content: center;
 `
 
-const Welcome = (props) => {
+const Welcome = props => {
   const fast = { friction: 50, mass: 1, tension: 500 }
 
   const [animationParams, setAnimationParams] = useState({
@@ -52,7 +58,7 @@ const Welcome = (props) => {
     config: {
       ...fast,
       duration: (!pressed && 800) || undefined,
-      easing: Easing.in((t) => Easing.bounce(t))
+      easing: Easing.in(t => Easing.bounce(t))
     },
     from: {
       rotateX: animationParams.rotateX,
@@ -67,14 +73,17 @@ const Welcome = (props) => {
   const orderSpring = useSpring({
     config: {
       duration: 800,
-      easing: Easing.inOut((t) => Easing.quad(t))
+      easing: Easing.inOut(t => Easing.quad(t))
     },
     from: { scale: orderScale.from },
     native: true,
-    onRest: !pressed && (() => setOrderScale({
-      from: orderScale.to,
-      to: orderScale.from
-    })),
+    onRest:
+      !pressed &&
+      (() =>
+        setOrderScale({
+          from: orderScale.to,
+          to: orderScale.from
+        })),
     to: { scale: orderScale.to }
   })
 
@@ -99,7 +108,9 @@ const Welcome = (props) => {
     <Black>
       <TouchableWithoutFeedback onPress={handlePress}>
         <Wrapper style={{ opacity }}>
-          <Logo style={Object.assign({}, { transform: [{ rotateX }, { scale }] })}>
+          <Logo
+            style={Object.assign({}, { transform: [{ rotateX }, { scale }] })}
+          >
             <Image
               source={logo}
               style={{
@@ -108,7 +119,14 @@ const Welcome = (props) => {
               }}
             />
           </Logo>
-          <Order style={Object.assign({}, { transform: [{ scale: orderSpring.scale }] })}>Order Here</Order>
+          <Order
+            style={Object.assign(
+              {},
+              { transform: [{ scale: orderSpring.scale }] }
+            )}
+          >
+            Order Here
+          </Order>
         </Wrapper>
       </TouchableWithoutFeedback>
     </Black>

@@ -3,22 +3,25 @@ import { createStackNavigator } from 'react-navigation-stack'
 
 import { Homepage, Review, Start, Welcome } from 'subkiosk/src/components'
 
-const Navigator = createStackNavigator({
-  Homepage: { screen: Homepage },
-  Review: { screen: Review },
-  Start: { screen: Start },
-  Welcome: { screen: Welcome }
-}, {
-  defaultNavigationOptions: {
-    gesturesEnabled: false
+const Navigator = createStackNavigator(
+  {
+    Homepage: { screen: Homepage },
+    Review: { screen: Review },
+    Start: { screen: Start },
+    Welcome: { screen: Welcome }
   },
-  headerMode: 'none',
-  initialRouteName: 'Welcome',
-  transitionConfig: () => ({
-    transitionSpec: {
-      duration: 0
-    }
-  })
-})
+  {
+    defaultNavigationOptions: {
+      gesturesEnabled: false
+    },
+    headerMode: 'none',
+    initialRouteName: 'Welcome',
+    transitionConfig: () => ({
+      transitionSpec: {
+        duration: 0
+      }
+    })
+  }
+)
 
 export default createAppContainer(Navigator)

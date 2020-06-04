@@ -7,15 +7,17 @@ const Order = types
     items: types.array(types.reference(Item)),
     customizations: types.array(types.string)
   })
-  .views((self) => ({
+  .views(self => ({
     get orderTotal () {
       return self.items.reduce((acc, item) => acc + item.price, 0)
     }
   }))
-  .actions((self) => ({
+  .actions(self => ({
     addItem (itemId, customizations = {}) {
       self.items.push(itemId)
-      self.customizations.push(JSON.stringify({ id: itemId, ...customizations }))
+      self.customizations.push(
+        JSON.stringify({ id: itemId, ...customizations })
+      )
     },
     resetOrder () {
       self.items = []

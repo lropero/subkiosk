@@ -3,16 +3,17 @@ import styled from 'styled-components/native'
 
 const StyledButton = styled.TouchableHighlight`
   align-items: center;
-  background-color:  ${({ backgroundColor }) => backgroundColor};
+  background-color: ${({ backgroundColor }) => backgroundColor};
   border-radius: ${({ borderRadius }) => borderRadius};
-  border: ${({ borderColor }) => borderColor ? `1px solid ${borderColor}` : 0};
+  border: ${({ borderColor }) =>
+    borderColor ? `1px solid ${borderColor}` : 0};
   display: flex;
   height: ${({ height }) => height};
   justify-content: center;
   shadow-color: ${({ shadowColor }) => shadowColor};
-  shadow-offset: ${({ shadowColor }) => shadowColor ? '0 5px' : 0};
-  shadow-opacity: ${({ shadowColor }) => shadowColor ? 0.15 : 0};
-  shadow-radius: ${({ shadowColor }) => shadowColor ? '6px' : 0};
+  shadow-offset: ${({ shadowColor }) => (shadowColor ? '0 5px' : 0)};
+  shadow-opacity: ${({ shadowColor }) => (shadowColor ? 0.15 : 0)};
+  shadow-radius: ${({ shadowColor }) => (shadowColor ? '6px' : 0)};
   width: ${({ width }) => width};
 `
 
@@ -23,8 +24,19 @@ const Text = styled.Text`
   font-weight: 600;
 `
 
-const Button = (props) => {
-  const { backgroundColor, borderColor, borderRadius, color, fontSize, height, onPress, shadowColor, text, width } = props
+const Button = props => {
+  const {
+    backgroundColor,
+    borderColor,
+    borderRadius,
+    color,
+    fontSize,
+    height,
+    onPress,
+    shadowColor,
+    text,
+    width
+  } = props
   return (
     <StyledButton
       backgroundColor={backgroundColor}
@@ -35,10 +47,8 @@ const Button = (props) => {
       shadowColor={shadowColor}
       width={width}
     >
-      <Text
-        color={color}
-        fontSize={fontSize}
-      >{text}
+      <Text color={color} fontSize={fontSize}>
+        {text}
       </Text>
     </StyledButton>
   )

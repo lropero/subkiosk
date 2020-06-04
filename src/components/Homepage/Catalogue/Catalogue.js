@@ -2,7 +2,13 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import React, { Fragment, useEffect, useRef, useState } from 'react'
 import styled, { withTheme } from 'styled-components/native'
 import { animated, useSpring } from 'react-spring'
-import { Easing, FlatList, ScrollView, TouchableOpacity, View } from 'react-native'
+import {
+  Easing,
+  FlatList,
+  ScrollView,
+  TouchableOpacity,
+  View
+} from 'react-native'
 
 import Customization from './Customization'
 import Item from './Item'
@@ -107,7 +113,7 @@ const WrapperCustomization = styled.View`
   width: 100%;
 `
 
-const Catalogue = (props) => {
+const Catalogue = props => {
   const [animationParams, setAnimationParams] = useState({ height: '0%' })
   const [customizations, setCustomizations] = useState({})
   const [showItem, setShowItem] = useState(false)
@@ -117,7 +123,7 @@ const Catalogue = (props) => {
   const { height } = useSpring({
     config: {
       duration: 800,
-      easing: Easing.in((t) => Easing.bounce(t))
+      easing: Easing.in(t => Easing.bounce(t))
     },
     from: { height: animationParams.height },
     native: true,
@@ -145,14 +151,14 @@ const Catalogue = (props) => {
       set.clear()
       set.add(customizationId)
     }
-    setCustomizations({ ...customizations, [customizationGroupId]: Array.from(set) })
+    setCustomizations({
+      ...customizations,
+      [customizationGroupId]: Array.from(set)
+    })
   }
 
   const renderItem = ({ item }) => (
-    <Item
-      item={item}
-      setShowItem={setShowItem}
-    />
+    <Item item={item} setShowItem={setShowItem} />
   )
 
   const resetItem = () => {
@@ -172,26 +178,41 @@ const Catalogue = (props) => {
           <Customizations style={{ height }}>
             <Top>
               <TouchableOpacity activeOpacity={0.7} onPress={resetItem}>
-                <Back><Icon color={props.theme.white} name='angle-left' size={62} /></Back>
+                <Back>
+                  <Icon color={props.theme.white} name='angle-left' size={62} />
+                </Back>
               </TouchableOpacity>
               <ItemName>{showItem.name}</ItemName>
             </Top>
             <ScrollView>
-              {showItem.customizationsAvailable && showItem.customizationGroups.map((customizationGroup) => (
-                <Fragment key={customizationGroup.id}>
-                  <CustomizationGroup>{customizationGroup.name}</CustomizationGroup>
-                  <WrapperCustomization>
-                    {showItem.getCustomizations(customizationGroup.id).map((customization) => (
-                      <Customization
-                        clicked={(customizations[customizationGroup.id] || []).includes(customization.id)}
-                        customization={customization}
-                        key={customization.id}
-                        setClicked={() => handleClick(customizationGroup.id, customization.id, customizationGroup.maximum)}
-                      />
-                    ))}
-                  </WrapperCustomization>
-                </Fragment>
-              ))}
+              {showItem.customizationsAvailable &&
+                showItem.customizationGroups.map(customizationGroup => (
+                  <Fragment key={customizationGroup.id}>
+                    <CustomizationGroup>
+                      {customizationGroup.name}
+                    </CustomizationGroup>
+                    <WrapperCustomization>
+                      {showItem
+                        .getCustomizations(customizationGroup.id)
+                        .map(customization => (
+                          <Customization
+                            clicked={(
+                              customizations[customizationGroup.id] || []
+                            ).includes(customization.id)}
+                            customization={customization}
+                            key={customization.id}
+                            setClicked={() =>
+                              handleClick(
+                                customizationGroup.id,
+                                customization.id,
+                                customizationGroup.maximum
+                              )
+                            }
+                          />
+                        ))}
+                    </WrapperCustomization>
+                  </Fragment>
+                ))}
               <Bottom>
                 <Button
                   backgroundColor={props.theme.green}
@@ -212,7 +233,9 @@ const Catalogue = (props) => {
           </Customizations>
           <Top>
             <TouchableOpacity activeOpacity={0.7} onPress={resetItem}>
-              <Back><Icon color={props.theme.white} name='angle-left' size={62} /></Back>
+              <Back>
+                <Icon color={props.theme.white} name='angle-left' size={62} />
+              </Back>
             </TouchableOpacity>
             <ItemName>{showItem.name}</ItemName>
           </Top>
@@ -221,7 +244,10 @@ const Catalogue = (props) => {
               <Picture resizeMode='contain' source={getImage(showItem.id)} />
             </Left>
             <Right>
-              <ItemDescription>{showItem.description || 'Lorem ipsum dolor sit amet consectetur adipiscing elit quis, cum nisi torquent malesuada tempus nibh augue.'}</ItemDescription>
+              <ItemDescription>
+                {showItem.description ||
+                  'Lorem ipsum dolor sit amet consectetur adipiscing elit quis, cum nisi torquent malesuada tempus nibh augue.'}
+              </ItemDescription>
               <Button
                 backgroundColor={props.theme.green}
                 borderColor={props.theme.green}
@@ -229,8 +255,16 @@ const Catalogue = (props) => {
                 color={props.theme.white}
                 fontSize='24px'
                 height='70px'
-                onPress={showItem.customizationsAvailable ? showCustomizations : () => props.addItem(showItem.id)}
-                text={showItem.customizationsAvailable ? 'CUSTOMIZE' : 'ADD TO ORDER'}
+                onPress={
+                  showItem.customizationsAvailable
+                    ? showCustomizations
+                    : () => props.addItem(showItem.id)
+                }
+                text={
+                  showItem.customizationsAvailable
+                    ? 'CUSTOMIZE'
+                    : 'ADD TO ORDER'
+                }
                 width='300px'
               />
             </Right>
@@ -241,7 +275,7 @@ const Catalogue = (props) => {
           bounces={false}
           columnWrapperStyle={{ flex: 1, justifyContent: 'space-around' }}
           data={formatData(Object.values(props.items), 3)}
-          keyExtractor={(item) => item.id}
+          keyExtractor={item => item.id}
           numColumns={3}
           ref={flatList}
           renderItem={renderItem}

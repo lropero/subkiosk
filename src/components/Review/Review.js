@@ -2,7 +2,11 @@ import React, { PureComponent } from 'react'
 import styled from 'styled-components/native'
 import { animated, config, Spring } from 'react-spring/renderprops-native'
 import { Image, ImageBackground, Text, View } from 'react-native'
-import { NavigationActions, StackActions, withNavigation } from 'react-navigation'
+import {
+  NavigationActions,
+  StackActions,
+  withNavigation
+} from 'react-navigation'
 
 import Item from './Item'
 import background from 'subkiosk/src/assets/images/background.png'
@@ -36,10 +40,12 @@ class Review extends PureComponent {
     const resetNav = navigation.getParam('resetNav')
     const resetOrder = navigation.getParam('resetOrder')
     setTimeout(() => {
-      navigation.dispatch(StackActions.reset({
-        actions: [NavigationActions.navigate({ routeName: 'Welcome' })],
-        index: 0
-      }))
+      navigation.dispatch(
+        StackActions.reset({
+          actions: [NavigationActions.navigate({ routeName: 'Welcome' })],
+          index: 0
+        })
+      )
       resetNav()
       resetOrder()
     }, 8000)
@@ -50,7 +56,10 @@ class Review extends PureComponent {
     const getItem = navigation.getParam('getItem')
     const groupedItems = navigation.getParam('groupedItems')
     return (
-      <ImageBackground source={background} style={{ backgroundColor: 'black', flex: 1 }}>
+      <ImageBackground
+        source={background}
+        style={{ backgroundColor: 'black', flex: 1 }}
+      >
         <Wrapper>
           <Image source={logo} style={{ height: 80, width: 396 }} />
           <Spring
@@ -59,7 +68,7 @@ class Review extends PureComponent {
             native
             to={{ opacity: 1 }}
           >
-            {(props) => (
+            {props => (
               <Statement style={props}>Please review your order</Statement>
             )}
           </Spring>
@@ -71,7 +80,13 @@ class Review extends PureComponent {
           >
             {({ translateY, ...props }) => (
               <Order style={{ ...props, transform: [{ translateY }] }}>
-                {Object.keys(groupedItems).map((itemId) => <Item item={getItem(itemId)} key={itemId} quantity={groupedItems[itemId].length} />)}
+                {Object.keys(groupedItems).map(itemId => (
+                  <Item
+                    item={getItem(itemId)}
+                    key={itemId}
+                    quantity={groupedItems[itemId].length}
+                  />
+                ))}
               </Order>
             )}
           </Spring>

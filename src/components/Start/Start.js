@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
 import { animated, config, useSpring } from 'react-spring'
-import { Image, ImageBackground, Text, TouchableOpacity, View } from 'react-native'
+import {
+  Image,
+  ImageBackground,
+  Text,
+  TouchableOpacity,
+  View
+} from 'react-native'
 
 import background from 'subkiosk/src/assets/images/background.png'
 import buttonEatIn from 'subkiosk/src/assets/images/button-eatIn.png'
@@ -38,7 +44,7 @@ const Wrapper = styled(animated(View))`
   justify-content: center;
 `
 
-const Start = (props) => {
+const Start = props => {
   const fast = { friction: 50, mass: 1, tension: 500 }
 
   const [animationParams, setAnimationParams] = useState({
@@ -97,7 +103,9 @@ const Start = (props) => {
           <Logo style={{ transform: [{ scale }] }}>
             <Image source={logo} style={{ height: 80, width: 396 }} />
           </Logo>
-          <Question style={{ letterSpacing }}>Where will you be eating today?</Question>
+          <Question style={{ letterSpacing }}>
+            Where will you be eating today?
+          </Question>
           <Buttons style={{ transform: [{ translateY }] }}>
             <TouchableOpacity activeOpacity={0.7} onPress={handlePress}>
               <Image

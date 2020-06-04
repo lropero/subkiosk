@@ -48,7 +48,11 @@ const Item = ({ item, setShowItem }) => {
       >
         {({ opacity, scale }) => (
           <Wrapper style={{ opacity, transform: [{ scale }] }}>
-            <Image resizeMode='cover' source={getImage(item.id)} style={{ height: 270, width: 332 }} />
+            <Image
+              resizeMode='cover'
+              source={getImage(item.id)}
+              style={{ height: 270, width: 332 }}
+            />
             <WrapperName>
               <Name>{item.name}</Name>
             </WrapperName>
@@ -56,7 +60,9 @@ const Item = ({ item, setShowItem }) => {
         )}
       </Spring>
     </TouchableOpacity>
-  ) : <Invisible />
+  ) : (
+    <Invisible />
+  )
 }
 
 export default Item

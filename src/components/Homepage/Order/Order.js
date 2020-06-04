@@ -2,7 +2,11 @@ import _ from 'lodash'
 import React from 'react'
 import styled, { withTheme } from 'styled-components/native'
 import { formatMoney } from 'accounting-js'
-import { NavigationActions, StackActions, withNavigation } from 'react-navigation'
+import {
+  NavigationActions,
+  StackActions,
+  withNavigation
+} from 'react-navigation'
 import { TouchableWithoutFeedback } from 'react-native'
 
 import Item from './Item'
@@ -50,13 +54,32 @@ const Wrapper = styled.View`
   width: 20%;
 `
 
-const Order = ({ customizations, getItem, items, navigation, resetNav, resetOrder, theme, total }) => {
+const Order = ({
+  customizations,
+  getItem,
+  items,
+  navigation,
+  resetNav,
+  resetOrder,
+  theme,
+  total
+}) => {
   const groupedItems = _.groupBy(items, 'id')
-  const groupedCustomizations = _.groupBy(customizations, (customization) => JSON.parse(customization).id)
+  const groupedCustomizations = _.groupBy(
+    customizations,
+    customization => JSON.parse(customization).id
+  )
   return (
     <Wrapper>
       <Top>
-        {Object.keys(groupedItems).map((itemId) => <Item customizations={groupedCustomizations[itemId][0]} item={getItem(itemId)} key={itemId} quantity={groupedItems[itemId].length} />)}
+        {Object.keys(groupedItems).map(itemId => (
+          <Item
+            customizations={groupedCustomizations[itemId][0]}
+            item={getItem(itemId)}
+            key={itemId}
+            quantity={groupedItems[itemId].length}
+          />
+        ))}
       </Top>
       <Bottom>
         <SubTotal>{`SUBTOTAL: ${formatMoney(total)}`}</SubTotal>
@@ -67,18 +90,30 @@ const Order = ({ customizations, getItem, items, navigation, resetNav, resetOrde
           color={theme.white}
           fontSize='24px'
           height='70px'
-          onPress={() => total > 0 ? navigation.navigate('Review', { getItem, groupedItems, resetNav, resetOrder }) : null}
+          onPress={() =>
+            total > 0
+              ? navigation.navigate('Review', {
+                  getItem,
+                  groupedItems,
+                  resetNav,
+                  resetOrder
+                })
+              : null
+          }
           text='CHECKOUT'
           width='200px'
         />
-        <TouchableWithoutFeedback onPress={() => {
-          navigation.dispatch(StackActions.reset({
-            actions: [NavigationActions.navigate({ routeName: 'Welcome' })],
-            index: 0
-          }))
-          resetNav()
-          resetOrder()
-        }}
+        <TouchableWithoutFeedback
+          onPress={() => {
+            navigation.dispatch(
+              StackActions.reset({
+                actions: [NavigationActions.navigate({ routeName: 'Welcome' })],
+                index: 0
+              })
+            )
+            resetNav()
+            resetOrder()
+          }}
         >
           <Cancel>CANCEL</Cancel>
         </TouchableWithoutFeedback>

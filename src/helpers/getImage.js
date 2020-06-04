@@ -126,7 +126,8 @@ const images = [
   require('subkiosk/src/assets/images/i73.jpg')
 ]
 
-export default function getImage (itemId, type = 'i') { // types 'c'ustomization or 'i'tem
+export default function getImage (itemId, type = 'i') {
+  // types 'c'ustomization or 'i'tem
   const offset = type === 'i' ? 52 : 0
   return images[parseInt(itemId, 10) + offset - 1]
 }

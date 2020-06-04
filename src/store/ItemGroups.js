@@ -7,11 +7,13 @@ const ItemGroups = types
     itemGroups: types.array(ItemGroup),
     selected: types.reference(ItemGroup)
   })
-  .views((self) => ({
+  .views(self => ({
     get groupings () {
-      return self.itemGroups.map((itemGroup) => ({
+      return self.itemGroups.map(itemGroup => ({
         id: itemGroup.id,
-        imageId: itemGroup.items[Math.floor(Math.random() * itemGroup.items.length)].id,
+        imageId:
+          itemGroup.items[Math.floor(Math.random() * itemGroup.items.length)]
+            .id,
         name: itemGroup.name
       }))
     },
@@ -19,7 +21,7 @@ const ItemGroups = types
       return self.selected ? self.selected.items : []
     }
   }))
-  .actions((self) => ({
+  .actions(self => ({
     resetNav () {
       self.selected = '1'
     },
