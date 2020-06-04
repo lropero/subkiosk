@@ -1,6 +1,6 @@
 # SubKiosk
 
-_Self-Order DEMO Kiosk using React Native and MobX_
+_Self-order demo kiosk_
 
 ### Requires
 
