@@ -4,9 +4,9 @@ _Self-Order DEMO Kiosk using React Native and MobX_
 
 ### Requires
 
-- CocoaPods v1.7.5
-- Node v10.16.3
-- Yarn v1.17.3
+- CocoaPods v1.9.0
+- Node v14.3.0
+- Yarn v1.22.4
 
 ### Installation
 
